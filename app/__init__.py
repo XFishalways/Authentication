@@ -25,5 +25,4 @@ lm.init_app(app)  # init the login manager
 #     db.create_all()
 
 
-# Import routing, models and Start the App
 from app import views, models

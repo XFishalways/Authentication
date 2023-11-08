@@ -1,8 +1,7 @@
 import os
 from decouple import config
 
-# Grabs the folder where the script runs.
-basedir = os.path.abspath(os.path.dirname(__file__))
+import app
 
 
 class Config:
@@ -11,6 +10,14 @@ class Config:
     # Set up the App SECRET_KEY
     SECRET_KEY = config("SECRET_KEY", default="S#perS3crEt_007")
 
-    # This will create a file in <app> FOLDER
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "db.sqlite3")
+    HOSTNAME = "127.0.0.1"
+    PORT = "3306"
+    DATABASE = "auth"
+    USERNAME = "root"
+    PASSWORD = "XFish_-141336"
+    DB_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(
+        USERNAME, PASSWORD, HOSTNAME, PORT, DATABASE
+    )
+    SQLALCHEMY_DATABASE_URI = DB_URI
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_ECHO = True
