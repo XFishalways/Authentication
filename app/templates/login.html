@@ -9,7 +9,7 @@
 <title>Authentication - Login page</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/css/custom.css">
+<link rel="stylesheet" href="/static/assets/css/custom.css">
 
 </head>
 <body>
@@ -46,17 +46,21 @@
                             {{ form.username(class="form-control") }}
                             <label for="floatingInput">Username</label>
                         </div>
+
                         <div class="form-floating mb-3">
                             {{ form.password(class="form-control", type="password") }}
                             <label for="floatingPassword">Password</label>
                         </div>
                         <br />
-                        <!--
-                        <div class="checkbox mb-3">
-                            <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                            </label>
-                        </div> -->
+
+{#                        {% if success %}#}
+                        <div class="form-floating mb-3">
+                            {{ form.totp_code(class="form-control") }}
+                            <label for="floatingInput">Google Authenticator Code</label>
+                        </div>
+{#                        {% endif %}#}
+
+
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
                         <hr class="my-4">
                         <small class="text-muted">
