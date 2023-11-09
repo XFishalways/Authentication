@@ -13,6 +13,13 @@ class Config:
     # Set up the App SECRET_KEY
     SECRET_KEY = config("SECRET_KEY", default="XFIsha1wAys")
 
+    MAIL_SERVER = "smtp.163.com"
+    MAIL_PORT = 25
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+
     HOSTNAME = "127.0.0.1"
     PORT = "3306"
     DATABASE = "auth"
